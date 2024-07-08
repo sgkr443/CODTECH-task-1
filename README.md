@@ -24,6 +24,7 @@ Technologies Used
 -> Icarus Verilog
 -> VSCode
 ->GTKWave
+->Xilinx Vivado
   
 
-  Technologies
+  
