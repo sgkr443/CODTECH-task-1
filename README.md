@@ -6,24 +6,21 @@ Domain: VLSI
 Duration:June to August 5th
 Mentor:N.Santosh Kumar
 
-Overview of the project
+Overview of the project:
 
 Project : Design basic digital logic circuits like logic gates, adders, and multiplexers using
 Verilog within the VLSI software. Simulate the Verilog designs to ensure correct
 functionality. Use the waveform viewer in the VLSI software to analyze the
 simulation results.
 
-Objective
+Objective:
   The objective of this project is to design adders, multiplexers,logic gates using verilog with VLSI software so i designed some circuits using them.
 
-  Key Activities
+  Key Activities:
   -> Writing Code
   -> Synthesising circuit
   -> Timing Diagrams
-Technologies Used
--> Icarus Verilog
--> VSCode
-->GTKWave
+Technologies Used:
 ->Xilinx Vivado
   
 
