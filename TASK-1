@@ -1,0 +1,80 @@
+/* MUX design code*/
+
+module mux(
+    input D0,
+    input D1,
+    input D2,
+    input D3,
+    input D4,
+    input D5,
+    input D6,
+    input D7,
+    input S0,
+    input S1,
+    input S2,
+    output OUT
+    );
+    
+   assign OUT = (D0&~S2&~S1&~S0) | (D1&~S2&~S1&S0) | (D2&~S2&S1&~S0) | (D3&~S2&S1&S0) | (D4&S2&~S1&~S0) | (D5&S2&~S1&S0) | (D6&S2&S1&~S0) | (D7&S2&S1&S0);
+endmodule
+
+/* ALL LOGIC GATES CODE AND TEST BENCH CODE*/
+module all_gates(
+    input a,b,
+    output y0,y1,y2,y3,y4
+    );
+    assign y0 = (a&b); 
+    assign y1 = (a|b);
+    assign y2 = ~(a&b);
+    assign y3 =  ~(a|b);
+    assign y4 = (a^b);
+       
+       
+endmodule
+
+module stimuli(   );
+reg a,b;
+wire y0,y1,y2,y3,y4;
+all_gates uut(a,b,y0,y1,y2,y3,y4);
+
+initial
+begin
+          a=0; b=0;
+     #10  a=0; b=1;
+     #10  a=1; b=0;
+     #10  a=1; b=1;
+     #10  $finish;
+end
+endmodule
+
+
+/* ADDERS DESIGN CODE AND TEST BENCH CODE*/
+
+module full_adder(input a,b,cin,
+       output sum,carry);
+       
+       wire s1,c1,c2;
+       half_adder HA1 (a,b,s1,c1);
+       half_adder HA2 (s1,cin,sum,c2);
+       assign carry = c1 | c2;
+endmodule
+
+module stimuli( );
+    wire sum,carry;
+    reg a,b,cin;
+    
+    full_adder dut(a,b,cin,sum,carry);
+    
+    initial
+    begin
+              a=0;b=0;cin=0;
+         #10  a=0;b=0;cin=1;
+         #10  a=0;b=1;cin=0;
+         #10  a=0;b=1;cin=1;
+         #10  a=1;b=0;cin=0;
+         #10  a=1;b=0;cin=1;
+         #10  a=1;b=1;cin=0;
+         #10  a=1;b=1;cin=1;
+         #10  $finish;
+    end
+endmodule
